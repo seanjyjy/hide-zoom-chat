@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "hide-zoom-chat",
+  "description": "hide zoom",
+  "version": "1.0.0",
+  "author": "Sean Lum",
+  "icons": {
+    "16": "./abc.png",
+    "48": "./abc.png",
+    "128": "./abc.png"
+  },
+  "page_action": {
+    "default_icon": "./abc.png",
+    "default_title": "Custom google chrome background"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://nus-sg.zoom.us/rec/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": ["removeChatScript.js"],
+  "permissions": [
+    "https://nus-sg.zoom.us/rec/*",
+    "declarativeContent",
+    "storage",
+    "webNavigation"
+  ]
+}
